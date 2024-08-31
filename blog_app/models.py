@@ -9,6 +9,8 @@ def validate_image_format(image):
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
+    tags = models.TextField(null=True)
+    category = models.CharField(max_length=255,null=True)
     image = models.ImageField(upload_to='images/', validators=[validate_image_format])
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
